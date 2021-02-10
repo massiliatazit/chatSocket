@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="width=device-width,initial-scale=1" />
+
+    <title>CHAT CHAT</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io.connect("http://localhost:5666");
+      socket.on("message", (data) => {
+        console.log(data);
+        socket.emit("another event", {
+          massy: "I am super good mind ur business",
+        });
+      });
+    </script>
+  </body>
+</html>
