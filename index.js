@@ -13,7 +13,8 @@ router.get('/',(req,res)=>{
 })
 io.on('connection',(socket)=>{
     console.log('user connected')
-    socket.emit('message',{manny:"hey how's going there"})// call the event 
+    socket.emit('message',(msg)=>{console.log(msg)
+    io.emit('message',msg)})// call the event 
     socket.on('another event',(data)=>{
         console.log(data)
     })
